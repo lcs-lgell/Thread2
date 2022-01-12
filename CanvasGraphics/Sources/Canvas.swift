@@ -125,7 +125,7 @@ public class Canvas : NSImageView, CustomPlaygroundDisplayConvertible {
     
     // Big Sur?
     private var onBigSur: Bool {
-        return ProcessInfo.processInfo.operatingSystemVersion.majorVersion == 11
+        return ProcessInfo.processInfo.operatingSystemVersion.majorVersion >= 11
     }
     
     /// Creates a canvas object that can be drawn upon.
