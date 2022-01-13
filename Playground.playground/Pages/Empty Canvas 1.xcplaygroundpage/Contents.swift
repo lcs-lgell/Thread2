@@ -39,20 +39,39 @@ PlaygroundPage.current.liveView = canvas
  If you do not wish to see a grid, comment out the code on line 48.
  
  */
-
+canvas.drawShapesWithFill = false
+canvas.drawShapesWithBorders = true
 
 
 // Show a grid
 canvas.drawAxes(withScale: true, by: 20, color: .black)
-
+canvas.defaultBorderWidth = 5
 canvas.highPerformance = false
-
+canvas.borderColor = Color.black
 canvas.fillColor = Color.white
+//main face
 canvas.drawEllipse(at: Point(x: 90, y: 110), width: 80, height: 70)
 p.goToOrigin()
-p.goto(dx: 60, dy: 130)
+//going to ear
+p.goto(dx: 60, dy: 135)
 p.penColor = .black
+//canvas.fillColor = Color(hue: 47, saturation: 100, brightness: 100, alpha: 100)
+canvas.borderColor = Color.black
+//canvas.drawLine(from: Point(x: 60, y: 135), to: Point(x: 70, y: 155))
+// ears
+p.fillColor = Color(hue: 47, saturation: 100, brightness: 100, alpha: 100)
 p.drawTo(dx: 10, dy: 20)
+p.drawTo(dx: 10, dy: -9)
+p.drawTo(dx: -20, dy: -11)
+p.goto(dx: 40, dy: 11)
+p.drawTo(dx: 10, dy: 9)
+p.drawTo(dx: 10, dy: -20)
+p.drawTo(dx: -20, dy: 11)
+// eyes
+print(p.currentPosition())
+p.goto(dx: -100, dy: -146)
+p.goto(dx: 50, dy: 60)
+p.drawCircle(radius: 7)
 /*:
  ## Add your code
  
