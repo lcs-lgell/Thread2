@@ -16,6 +16,7 @@ let preferredHeight = 220
 import Cocoa
 import PlaygroundSupport
 import CanvasGraphics
+import Darwin
 
 // Create canvas
 let canvas = Canvas(width: preferredWidth, height: preferredHeight)
@@ -39,7 +40,7 @@ PlaygroundPage.current.liveView = canvas
  If you do not wish to see a grid, comment out the code on line 48.
  
  */
-canvas.drawShapesWithFill = false
+canvas.drawShapesWithFill = true
 canvas.drawShapesWithBorders = true
 
 
@@ -48,57 +49,38 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
 canvas.defaultBorderWidth = 5
 canvas.highPerformance = false
 canvas.borderColor = Color.black
-canvas.fillColor = Color(hue: 39, saturation: 90, brightness: 100, alpha: 100)
+
 //main face
+canvas.fillColor = Color(hue: 39, saturation: 90, brightness: 100, alpha: 100)
 canvas.drawEllipse(at: Point(x: 90, y: 110), width: 80, height: 70)
-p.goToOrigin()
-//going to ear
-p.goto(dx: 60, dy: 135)
-p.penColor = .black
-//canvas.fillColor = Color(hue: 47, saturation: 100, brightness: 100, alpha: 100)
-canvas.borderColor = Color.black
-//canvas.drawLine(from: Point(x: 60, y: 135), to: Point(x: 70, y: 155))
-// ears
-p.fillColor = Color(hue: 47, saturation: 100, brightness: 100, alpha: 100)
-p.drawTo(dx: 10, dy: 20)
-p.drawTo(dx: 10, dy: -9)
-p.drawTo(dx: -20, dy: -11)
-p.goto(dx: 40, dy: 11)
-p.drawTo(dx: 10, dy: 9)
-p.drawTo(dx: 10, dy: -20)
-p.drawTo(dx: -20, dy: 11)
-// eyes
-canvas.drawShapesWithFill = true
+//eyes
+canvas.defaultBorderWidth = 3
+canvas.fillColor = Color.white
+canvas.drawEllipse(at: Point(x: 104, y: 120), width: 14, height: 14)
+canvas.drawEllipse(at: Point(x: 76, y: 120), width: 14, height: 14)
+//pupils
+canvas.fillColor = Color.black
 
-print(p.currentPosition())
-p.goto(dx: -100, dy: -146)
-p.goto(dx: 52, dy: 60)
+canvas.drawEllipse(at: Point(x: 103, y: 118), width: 5, height: 5)
+canvas.drawEllipse(at: Point(x: 77, y: 118), width: 5, height: 5)
 
-p.drawCircle(radius: 7)
-p.fillColor = .black
-p.goto(dx: -14, dy: 0)
-p.drawCircle(radius: 7)
-p.goToOrigin()
-print(p.currentPosition())
-p.goto(dx: 90, dy: 100)
-p.turn(degrees: 135)
-p.addLine(distance: 10)
-p.turn(degrees: -135)
-p.addLine(distance: 14)
-p.turn(degrees: -135)
-p.addLine(distance: 10)
-p.turn(degrees: 45)
-p.addLine(distance: 10)
-print(p.currentPosition())
-p.turn(degrees: -90)
-p.addArc(radius: 40, angle: -20)
-p.goToOrigin()
-p.goto(dx: 90, dy: 90)
-p.turn(degrees: 20)
-print(p.currentHeading)
-p.addArc(radius: -40, angle: 20)
-p.goToOrigin()
-p.goto(dx: 60, dy: 83)
+//Ears
+canvas.drawShapesWithFill = false
+canvas.drawShapesWithBorders = false
+canvas.drawShapesWithBorders = true
+canvas.defaultBorderWidth = 6
+canvas.drawCustomShape(with: [Point(x: 60, y: 135),Point(x: 70, y: 155),Point(x: 80, y: 146)])
+canvas.drawCustomShape(with: [Point(x: 100, y: 146),Point(x: 110, y: 155),Point(x: 120, y: 135)])
+//nose
+canvas.defaultBorderWidth = 5
+canvas.drawCustomShape(with: [Point(x: 83, y: 105),Point(x: 97, y: 105),Point(x: 90, y: 95)])
+canvas.lineColor = Color.black
+canvas.drawLine(from: Point(x: 90, y: 95), to: Point(x: 90, y: 90))
+canvas.drawLine(from: Point(x: 90, y: 90), to: Point(x: 80, y: 90))
+canvas.drawLine(from: Point(x: 90, y: 90), to: Point(x: 100, y: 90))
+
+
+
 
 
 /*:
