@@ -46,6 +46,34 @@ canvas.highPerformance = true
 //drawer where the cats legs go over
 canvas.fillColor = Color(hue: 30, saturation: 69, brightness: 51, alpha: 100)
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 180, height: 80)
+canvas.drawShapesWithBorders = true
+canvas.defaultBorderWidth = 10
+canvas.drawRectangle(at: Point(x: 20, y: 20), width: 60, height: 40)
+canvas.drawRectangle(at: Point(x: 100, y: 20), width: 60, height: 40)
+canvas.drawEllipse(at: Point(x: 50, y: 40), width: 5, height: 5)
+canvas.drawEllipse(at: Point(x: 130, y: 40), width: 5, height: 5)
+
+//window background
+canvas.defaultBorderWidth = 3
+canvas.fillColor = Color(hue: 210, saturation: 88, brightness: 100, alpha: 100)
+canvas.drawRectangle(at: Point(x: 0, y: 80), width: 180, height: 140)
+canvas.fillColor = Color.white
+// the sun
+canvas.drawShapesWithBorders = false
+canvas.fillColor = Color(hue: 60, saturation: 100, brightness: 100, alpha: 100)
+canvas.drawEllipse(at: Point(x: 115, y: 160), width: 30, height: 30)
+canvas.fillColor = Color.white
+canvas.drawShapesWithBorders = true
+// left bar
+canvas.drawRectangle(at: Point(x: 42, y: 84), width: 10, height: 96)
+//to middle
+canvas.drawRectangle(at: Point(x: 52, y: 170), width: 80, height: 10)
+// right bar
+canvas.drawRectangle(at: Point(x: 128, y: 84), width: 10, height: 96)
+// middle middle bar
+canvas.drawRectangle(at: Point(x: 0, y: 76), width: 180, height: 8)
+
+
 
 
 
