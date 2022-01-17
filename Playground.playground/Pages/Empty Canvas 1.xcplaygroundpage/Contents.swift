@@ -43,6 +43,28 @@ PlaygroundPage.current.liveView = canvas
 canvas.drawShapesWithFill = true
 canvas.drawShapesWithBorders = true
 canvas.highPerformance = true
+
+canvas.fillColor = Color(hue: 210, saturation: 88, brightness: 100, alpha: 100)
+canvas.drawRectangle(at: Point(x: 0, y: 80), width: 180, height: 140)
+
+//gradient for window
+for value in stride(from: 84, through: 170, by: 1) {
+    
+    // Change the "value" to a value in a different range
+    let currentHue = map(value: Double(value), fromLower: 84.0, fromUpper: 170.0, toLower: 55.0, toUpper: 30.0)
+    
+    // Create a new color
+    let currentColor = Color(hue: Int(currentHue), saturation: 80, brightness: 90, alpha: 100)
+    
+    // Set the line color
+    canvas.lineColor = currentColor
+    
+    // Draw the line
+    canvas.drawLine(from: Point(x: 52, y: value),
+                    to: Point(x: 130, y: value))
+    
+}
+
 //drawer where the cats legs go over
 canvas.fillColor = Color(hue: 30, saturation: 69, brightness: 51, alpha: 100)
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 180, height: 80)
@@ -55,8 +77,7 @@ canvas.drawEllipse(at: Point(x: 130, y: 40), width: 5, height: 5)
 
 //window background
 canvas.defaultBorderWidth = 3
-canvas.fillColor = Color(hue: 210, saturation: 88, brightness: 100, alpha: 100)
-canvas.drawRectangle(at: Point(x: 0, y: 80), width: 180, height: 140)
+
 canvas.fillColor = Color.white
 // the sun
 canvas.drawShapesWithBorders = false
@@ -84,7 +105,7 @@ canvas.drawEllipse(at: Point(x: 70, y: 60), width: 20, height: 13)
 canvas.drawEllipse(at: Point(x: 110, y: 60), width: 20, height: 13)
 canvas.drawShapesWithBorders = true
 // Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+//canvas.drawAxes(withScale: true, by: 20, color: .black)
 
 canvas.borderColor = Color.black
 // fill of left leg/arm
