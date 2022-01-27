@@ -53,9 +53,9 @@ PlaygroundPage.current.liveView = canvas
  */
 canvas.highPerformance = true
 canvas.drawShapesWithFill = true
-canvas.fillColor = .orange
+canvas.fillColor = Color(hue: 17, saturation: 95, brightness: 95, alpha: 100)
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
-canvas.fillColor = .white
+canvas.fillColor = Color(hue: 49, saturation: 100, brightness: 100, alpha: 100)
 for xValue in stride(from: 0, through: 400, by: 40){
     for yValue in stride(from: 200, through: 600, by: 40){
         var figureVertices: [Point] = []
@@ -63,12 +63,14 @@ for xValue in stride(from: 0, through: 400, by: 40){
         figureVertices.append(Point(x: xValue + 40, y: yValue + 40))
         figureVertices.append(Point(x: xValue + 40, y: yValue + 0))
         canvas.drawCustomShape(with: figureVertices)
-        if yValue + xValue >= 230 {
-            canvas.fillColor = .white
-        } else {
+        if yValue <= xValue + 160  {
             canvas.fillColor = Color(hue: 49, saturation: 100, brightness: 100, alpha: 100)
+        } else if  yValue >= 600{
+            canvas.fillColor = Color(hue: 49, saturation: 100, brightness: 100, alpha: 100)
+            
+        }else { canvas.fillColor = Color(hue: 79, saturation: 5, brightness: 88, alpha: 100)
         }
-        canvas.drawText(message: "(\(xValue), \n\(yValue))",at: Point(x: xValue, y: yValue - 10),size: 8)
+        canvas.drawText(message: "(\(xValue), \n\(yValue - 200))",at: Point(x: xValue, y: yValue - 10),size: 8)
             
 
 }
