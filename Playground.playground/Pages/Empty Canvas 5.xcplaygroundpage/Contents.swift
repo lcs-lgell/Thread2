@@ -83,7 +83,17 @@ for xPosition in stride(from: 0, through: 400, by: 40) {
     }
 }
 canvas.lineColor = .black
-canvas.drawText(message: "pixies", at: Point(x: 25, y: 420), size: 50)
+canvas.drawText(message: "pixies", at: Point(x: 18, y: 415), size: 60)
+canvas.drawText(message: "saturday", at: Point(x: 18, y: 550), size: 10)
+canvas.drawText(message: "december 13 1986", at: Point(x: 18, y: 535), size: 10)
+canvas.drawText(message: "9pm over 21", at: Point(x: 18, y: 520), size: 10)
+canvas.drawText(message: "at the rat", at: Point(x: 280, y: 550), size: 10)
+canvas.drawText(message: "528 commonwealth", at: Point(x: 280, y: 535), size: 10)
+canvas.drawText(message: "boston, mass.", at: Point(x: 280, y: 520), size: 10)
+canvas.textColor = .white
+canvas.drawText(message: "with", at: Point(x: 280, y: 450), size: 15)
+canvas.drawText(message: "throwing muses", at: Point(x: 280, y: 430), size: 15)
+canvas.drawText(message: "big dipper", at: Point(x: 280, y: 410), size: 15)
 
 
 

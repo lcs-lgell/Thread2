@@ -51,11 +51,22 @@ PlaygroundPage.current.liveView = canvas
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
-
+canvas.highPerformance = true
+canvas.drawShapesWithFill = true
 canvas.fillColor = .orange
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 canvas.fillColor = .white
-for xValue in stride(from: 200, through: 600, by: 40){
-canvas.drawCustomShape(with: [Point(x: xValue, y: 200),Point(x: xValue, y: 40),Point(x: 0, y: 0)])
+for xValue in stride(from: 0, through: 400, by: 40){
+    for yValue in stride(from: 0, through: 400, by: 40){
+            
+            
+            
+            
+            
+canvas.drawCustomShape(with: [Point(x: xValue, y: yValue),Point(x: xValue + 20 , y: yValue + 20 ),Point(x: 0, y: 0)])
+}
 }
 canvas.drawAxes(withScale: true, by: 50, color: .black)
+
+//canvas.drawCustomShape(with: [Point(x: 0, y: 0),Point(x: 40, y: 40),Point(x: 40, y: 0)])
+canvas.highPerformance = false
