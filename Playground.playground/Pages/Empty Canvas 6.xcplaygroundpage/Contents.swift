@@ -57,13 +57,20 @@ canvas.fillColor = .orange
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 canvas.fillColor = .white
 for xValue in stride(from: 0, through: 400, by: 40){
-    for yValue in stride(from: 0, through: 400, by: 40){
+    for yValue in stride(from: 200, through: 600, by: 40){
+        var figureVertices: [Point] = []
+        figureVertices.append(Point(x: xValue + 0, y: yValue + 0))
+        figureVertices.append(Point(x: xValue + 40, y: yValue + 40))
+        figureVertices.append(Point(x: xValue + 40, y: yValue + 0))
+        canvas.drawCustomShape(with: figureVertices)
+        if yValue + xValue >= 230 {
+            canvas.fillColor = .white
+        } else {
+            canvas.fillColor = Color(hue: 49, saturation: 100, brightness: 100, alpha: 100)
+        }
+        canvas.drawText(message: "(\(xValue), \n\(yValue))",at: Point(x: xValue, y: yValue - 10),size: 8)
             
-            
-            
-            
-            
-canvas.drawCustomShape(with: [Point(x: xValue, y: yValue),Point(x: xValue + 20 , y: yValue + 20 ),Point(x: 0, y: 0)])
+
 }
 }
 canvas.drawAxes(withScale: true, by: 50, color: .black)
