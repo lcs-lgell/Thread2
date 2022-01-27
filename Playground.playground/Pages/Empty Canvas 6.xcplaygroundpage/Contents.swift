@@ -70,12 +70,24 @@ for xValue in stride(from: 0, through: 400, by: 40){
             
         }else { canvas.fillColor = Color(hue: 79, saturation: 5, brightness: 88, alpha: 100)
         }
-        canvas.drawText(message: "(\(xValue), \n\(yValue - 200))",at: Point(x: xValue, y: yValue - 10),size: 8)
+        //canvas.drawText(message: "(\(xValue), \n\(yValue - 200))",at: Point(x: xValue, y: yValue - 10),size: 8)
             
 
 }
 }
-canvas.drawAxes(withScale: true, by: 50, color: .black)
+canvas.textColor = Color(hue: 79, saturation: 5, brightness: 88, alpha: 100)
+canvas.drawText(message: "talking heads", at: Point(x: 20, y: 140), size: 40, kerning: 0)
+canvas.drawText(message: "friday, saturday, sunday", at: Point(x: 20, y: 35), size: 8, kerning: 0)
+canvas.drawText(message: "september 12, 13, 14, 1975", at: Point(x: 20, y: 15), size: 8, kerning: 0)
+canvas.drawText(message: "at cbgb and omfug", at: Point(x: 150, y: 35), size: 8, kerning: 0)
+canvas.drawText(message: "315 bowery, new york city", at: Point(x: 150, y: 15), size: 8, kerning: 0)
+canvas.drawText(message: "also apperaing:", at: Point(x: 280, y: 35), size: 8, kerning: 0)
+canvas.drawText(message: "from brooklyn, the shirts", at: Point(x: 280, y: 15), size: 8, kerning: 0)
 
-//canvas.drawCustomShape(with: [Point(x: 0, y: 0),Point(x: 40, y: 40),Point(x: 40, y: 0)])
+
+
+
+//canvas.drawAxes(withScale: true, by: 50, color: .black)
+
+
 canvas.highPerformance = false
