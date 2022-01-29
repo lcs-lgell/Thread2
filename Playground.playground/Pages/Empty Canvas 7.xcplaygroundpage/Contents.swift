@@ -4,7 +4,7 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 600
+let preferredWidth = 400
 let preferredHeight = 600
 /*:
  ## Required code
@@ -40,12 +40,9 @@ PlaygroundPage.current.liveView = canvas
  
  */
 
-// Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
 
-// Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+
+
 
 /*:
  ## Add your code
@@ -55,36 +52,84 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+canvas.highPerformance = true
+canvas.drawShapesWithFill = true
+canvas.drawShapesWithBorders = false
+// colors for lines and rectangle
+canvas.fillColor = Color(hue: 16, saturation: 100, brightness: 100, alpha: 100)
 
-// Begin writing your code below (you can remove the examples shown)
+canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
+canvas.defaultLineWidth = 50
+for xValue in stride(from: -300, through: 400, by: 50 ){
+    canvas.drawLine(from: Point(x: xValue , y: 100), to: Point(x: xValue + 300, y: 400))
+    // repeating lines
+    if xValue <= -300{
+        canvas.lineColor = .black
+    
+    }else if xValue == -250{
+        canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
+        
+    }else if xValue == -200 {
+        canvas.lineColor = .black
+    }else if xValue == -150 {
+        canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
+    }else if xValue == -100 {
+        canvas.lineColor = .black
+    }else if xValue == -50 {
+        canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
+    }else if xValue == 0 {
+        canvas.lineColor = .black
+    }else if xValue == 50 {
+        canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
+    }else if xValue == 100 {
+        canvas.lineColor = .black
+    }else if xValue == 150 {
+        canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
+    }else if xValue == 200 {
+        canvas.lineColor = .black
+    }else if xValue == 250 {
+        canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
+    }else if xValue == 300 {
+        canvas.lineColor = .black
+    }else if xValue == 350 {
+        canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
+    }
+    // rectangles for overlapping lines
+    canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 100)
+    canvas.drawRectangle(at: Point(x: 0, y: 400), width: 400, height: 200)
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
+    
+    
+}
+        
+// LOADING sign and image
+canvas.drawShapesWithBorders = true
+canvas.defaultBorderWidth = 10
+canvas.drawRectangle(at: Point(x: 25, y: 50), width: 350, height: 25)
+canvas.fillColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
+ var figureVertices: [Point] = []
+ figureVertices.append(Point(x: 25, y: 50))
+figureVertices.append(Point(x: 25, y: 75 ))
+figureVertices.append(Point(x: 325, y: 75))
+figureVertices.append(Point(x: 300, y: 50))
+canvas.drawCustomShape(with: figureVertices)
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
 
-// Go back to origin
-p.goToOrigin()
 
-// Change the pen color
-p.penColor = .red
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
 
-/*:
- ## Show the Live View
- Don't see any results?
- 
- Remember to show the Live View (1 then 2):
- 
- ![timeline](timeline.png "Timeline")
 
- ## Use source control
- To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
- 
- Please commit and push your work often.
- 
- ![source_control](source-control.png "Source Control")
- */
+
+
+
+
+
+
+
+
+
+
+// Show a grid
+canvas.drawAxes(withScale: true, by: 50, color: .white)
+canvas.highPerformance = false
+
