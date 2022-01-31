@@ -63,35 +63,10 @@ canvas.defaultLineWidth = 50
 for xValue in stride(from: -300, through: 400, by: 50 ){
     canvas.drawLine(from: Point(x: xValue , y: 100), to: Point(x: xValue + 300, y: 400))
     // repeating lines
-    if xValue <= -300{
+    if xValue.isMultiple(of: 100){
         canvas.lineColor = .black
     
-    }else if xValue == -250{
-        canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
-        
-    }else if xValue == -200 {
-        canvas.lineColor = .black
-    }else if xValue == -150 {
-        canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
-    }else if xValue == -100 {
-        canvas.lineColor = .black
-    }else if xValue == -50 {
-        canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
-    }else if xValue == 0 {
-        canvas.lineColor = .black
-    }else if xValue == 50 {
-        canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
-    }else if xValue == 100 {
-        canvas.lineColor = .black
-    }else if xValue == 150 {
-        canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
-    }else if xValue == 200 {
-        canvas.lineColor = .black
-    }else if xValue == 250 {
-        canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
-    }else if xValue == 300 {
-        canvas.lineColor = .black
-    }else if xValue == 350 {
+    }else {
         canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
     }
     // rectangles for overlapping lines
