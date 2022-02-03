@@ -179,8 +179,7 @@ canvas.drawLine(from: Point(x: 120, y: 60), to: Point(x: 100, y: 60))
 canvas.drawLine(from: Point(x: 100, y: 60), to: Point(x: 100, y: 74))
 canvas.drawLine(from: Point(x: 106, y: 55), to: Point(x: 106, y: 57))
 canvas.drawLine(from: Point(x: 114, y: 55), to: Point(x: 114, y: 57))
-
-
+ 
 
 
 

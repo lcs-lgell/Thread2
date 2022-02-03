@@ -91,7 +91,7 @@ for xValue in stride(from: 0, through: 400, by: 50){
 canvas.drawShapesWithBorders = true
 canvas.defaultBorderWidth = 10
 canvas.drawRectangle(at: Point(x: 25, y: 62), width: 350, height: 25)
-canvas.fillColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
+canvas.fillColor = Color(hue: 269, saturation: 100, brightness: 100, alpha: 100)
  var figureVertices: [Point] = []
  figureVertices.append(Point(x: 25, y: 62))
 figureVertices.append(Point(x: 25, y: 87 ))
@@ -103,17 +103,17 @@ canvas.drawCustomShape(with: figureVertices)
 canvas.drawText(message: "LOADING", at: Point(x: 85, y: 5), size: 50, kerning: 0)
 // text top left
 canvas.textColor = Color(hue: 150, saturation: 4, brightness: 100, alpha: 100)
-canvas.drawText(message: "Leeds Festival", at: Point(x: 10, y: 560), size: 20, kerning: 0)
-canvas.drawText(message: "Bramham Park", at: Point(x: 10, y: 530), size: 20, kerning: 0)
-canvas.drawText(message: "August 27,28,29", at: Point(x: 10, y: 500), size: 20, kerning: 0)
+canvas.drawText(message: "Leeds Festival", at: Point(x: 10, y: 580), size: 10, kerning: 0)
+canvas.drawText(message: "Bramham Park", at: Point(x: 10, y: 560), size: 10, kerning: 0)
+canvas.drawText(message: "August 27,28,29", at: Point(x: 10, y: 540), size: 10, kerning: 0)
 //text middle
 canvas.drawText(message: "2021", at: Point(x: 175, y: 575), size: 20, kerning: 0)
     // text top right
-canvas.drawText(message: "Also Appearing", at: Point(x: 250, y: 560), size: 20, kerning: 0)
-canvas.drawText(message: "KSI, Digga D", at: Point(x: 260, y: 530), size: 20, kerning: 0)
+canvas.drawText(message: "Also Appearing", at: Point(x: 310, y: 570), size: 10, kerning: 0)
+canvas.drawText(message: "KSI, Digga D", at: Point(x: 310, y: 550), size: 10, kerning: 0)
 //CENTRAL CEE text
-canvas.drawText(message: "CENTRAL", at: Point(x: 85, y: 450), size: 50, kerning: 0)
-canvas.drawText(message: "CEE", at: Point(x: 150, y: 400), size: 50, kerning: 0)
+canvas.drawText(message: "CENTRAL", at: Point(x: 85, y: 460), size: 50, kerning: 0)
+canvas.drawText(message: "CEE", at: Point(x: 150, y: 410), size: 50, kerning: 0)
 
 
 
@@ -126,6 +126,6 @@ canvas.drawText(message: "CEE", at: Point(x: 150, y: 400), size: 50, kerning: 0)
 
 
 // Show a grid
-canvas.drawAxes(withScale: true, by: 50, color: .white)
+//canvas.drawAxes(withScale: true, by: 50, color: .white)
 canvas.highPerformance = false
 
