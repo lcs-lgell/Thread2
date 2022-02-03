@@ -52,6 +52,7 @@ PlaygroundPage.current.liveView = canvas
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+// rules implemented
 canvas.highPerformance = true
 canvas.drawShapesWithFill = true
 canvas.drawShapesWithBorders = false
@@ -60,6 +61,7 @@ canvas.fillColor = Color(hue: 200, saturation: 44, brightness: 67, alpha: 100)
 
 canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
 canvas.defaultLineWidth = 50
+// iteration for diagonal line with selection
 for xValue in stride(from: -300, through: 400, by: 50 ){
     canvas.drawLine(from: Point(x: xValue , y: 100), to: Point(x: xValue + 300, y: 400))
     // repeating lines
@@ -70,6 +72,7 @@ for xValue in stride(from: -300, through: 400, by: 50 ){
         canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
     }
 }
+// vertiacl lines to make it look better
 canvas.defaultLineWidth = 20
 canvas.lineColor = Color(hue: 150, saturation: 100, brightness: 100, alpha: 100)
 for xValue in stride(from: 0, through: 400, by: 50){
@@ -93,24 +96,25 @@ canvas.defaultBorderWidth = 10
 canvas.drawRectangle(at: Point(x: 25, y: 62), width: 350, height: 25)
 canvas.fillColor = Color(hue: 269, saturation: 100, brightness: 100, alpha: 100)
  var figureVertices: [Point] = []
- figureVertices.append(Point(x: 25, y: 62))
+figureVertices.append(Point(x: 25, y: 62))
 figureVertices.append(Point(x: 25, y: 87 ))
 figureVertices.append(Point(x: 325, y: 87))
 figureVertices.append(Point(x: 300, y: 62))
 canvas.drawCustomShape(with: figureVertices)
 
 //TEXT Loading
-canvas.drawText(message: "LOADING", at: Point(x: 85, y: 5), size: 50, kerning: 0)
+canvas.drawText(message: "LOADING", at: Point(x: 135, y: 15), size: 30, kerning: 0)
 // text top left
 canvas.textColor = Color(hue: 150, saturation: 4, brightness: 100, alpha: 100)
 canvas.drawText(message: "Leeds Festival", at: Point(x: 10, y: 580), size: 10, kerning: 0)
 canvas.drawText(message: "Bramham Park", at: Point(x: 10, y: 560), size: 10, kerning: 0)
 canvas.drawText(message: "August 27,28,29", at: Point(x: 10, y: 540), size: 10, kerning: 0)
-//text middle
-canvas.drawText(message: "2021", at: Point(x: 175, y: 575), size: 20, kerning: 0)
+
+
     // text top right
-canvas.drawText(message: "Also Appearing", at: Point(x: 310, y: 570), size: 10, kerning: 0)
-canvas.drawText(message: "KSI, Digga D", at: Point(x: 310, y: 550), size: 10, kerning: 0)
+canvas.drawText(message: "Also Appearing", at: Point(x: 310, y: 580), size: 10, kerning: 0)
+canvas.drawText(message: "KSI, Digga D", at: Point(x: 310, y: 560), size: 10, kerning: 0)
+canvas.drawText(message: "2021", at: Point(x: 310, y: 540), size: 10, kerning: 0)
 //CENTRAL CEE text
 canvas.drawText(message: "CENTRAL", at: Point(x: 85, y: 460), size: 50, kerning: 0)
 canvas.drawText(message: "CEE", at: Point(x: 150, y: 410), size: 50, kerning: 0)
