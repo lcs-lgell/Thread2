@@ -44,6 +44,11 @@ PlaygroundPage.current.liveView = canvas
 // Move the origin from the bottom-left corner of the canvas to it's centre point
 
 
+
+
+
+
+
 // Show a grid
 canvas.drawAxes(withScale: true, by: 50, color: .black)
 

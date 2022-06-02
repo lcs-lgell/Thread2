@@ -59,7 +59,7 @@ canvas.drawShapesWithBorders = false
 // colors for lines and rectangle
 canvas.fillColor = Color(hue: 200, saturation: 44, brightness: 67, alpha: 100)
 
-canvas.lineColor = Color(hue: 90, saturation: 100, brightness: 100, alpha: 100)
+canvas.lineColor = Color(hue: 90, saturation: 100, brightness: \100, alpha: 100)
 canvas.defaultLineWidth = 50
 // iteration for diagonal line with selection
 for xValue in stride(from: -300, through: 400, by: 50 ){
