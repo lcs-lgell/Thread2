@@ -1,6 +1,6 @@
 //: [Previous](@previous) / [Next](@next)
 /*:
-## Canvas size
+ ## Canvas size
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
@@ -51,9 +51,9 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  ## Add your code
  
  Beginning on line 61, you can add your own code.
-  
+ 
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
-
+ 
  */
 let scale = 20
 let diagonal = Int(sqrt(2.0) * Double (scale))
@@ -64,20 +64,41 @@ t.left(by: 90)
 t.forward(steps: scale)
 t.right(by: 90)
 t.penDown()
-//start
-t.forward(steps: scale * 3)
-t.right(by: 90)
-t.forward(steps: scale)
-t.left(by: 135)
-t.forward(steps: diagonal * 2)
-t.left(by: 90)
-t.forward(steps: diagonal * 2)
-t.left(by: 135)
-t.forward(steps: scale)
-t.right(by: 90)
-t.forward(steps: scale * 3)
-t.left(by: 90)
-t.forward(steps: scale * 2)
+
+func drawArrow () {
+    //start
+    t.forward(steps: scale * 3)
+    t.right(by: 90)
+    t.forward(steps: scale)
+    t.left(by: 135)
+    t.forward(steps: diagonal * 2)
+    t.left(by: 90)
+    t.forward(steps: diagonal * 2)
+    t.left(by: 135)
+    t.forward(steps: scale)
+    t.right(by: 90)
+    t.forward(steps: scale * 3)
+    t.left(by: 90)
+    t.forward(steps: scale * 2)
+    t.left(by: 90)
+}
+for _ in 1...6{
+    for _ in 1...5{
+        drawArrow()
+        t.penUp()
+        t.forward(steps: scale*5)
+        t.penDown()
+    }
+    //make more rows
+    t.currentPosition()
+    //move pen
+    t.penUp()
+    t.backward(steps: scale*25)
+    t.left(by: 90)
+    t.forward(steps: 84)
+    t.right(by: 90)
+    t.penDown()
+}
 
 /*:
  ## Show the Live View
@@ -86,7 +107,7 @@ t.forward(steps: scale * 2)
  Remember to show the Live View (1 then 2):
  
  ![timeline](timeline.png "Timeline")
-
+ 
  ## Use source control
  To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
  
