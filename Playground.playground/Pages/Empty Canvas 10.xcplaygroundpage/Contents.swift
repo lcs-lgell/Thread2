@@ -6,6 +6,7 @@
  */
 let preferredWidth = 600
 let preferredHeight = 600
+
 /*:
  ## Required code
  
@@ -41,12 +42,14 @@ PlaygroundPage.current.liveView = canvas
  */
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: 100,
-                           y: 100))
+canvas.translate(to: Point(x: 0,
+                           y: 0))
 
 // Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
-
+//canvas.drawAxes(withScale: true, by: 20, color: .black)
+// PEN COLOR
+t.setPenColor(to: .red
+)
 /*:
  ## Add your code
  
@@ -55,6 +58,7 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+canvas.highPerformance = true
 //Up pen Size
 t.setPenSize(to: 3)
 let scale = 20
@@ -97,6 +101,7 @@ func drawinvertcross(){
     t.right(by: 90)
     t.forward(steps: scale)
 }
+//squares for filling in
 func drawsquare(){
     for _ in 1...scale/2{
         t.forward(steps: scale)
@@ -105,21 +110,27 @@ func drawsquare(){
         t.left(by: 90)
         t.forward(steps: scale)
         t.right(by: 90)
+        t.penUp()
         t.forward(steps: 1)
+        
         t.right(by: 90)
+        t.penDown()
     
 }
     t.penUp()
     t.right(by: 90)
     t.forward(steps: scale)
     t.left(by: 90)
+    t.penDown()
 }
+//filled in cross
 func filledCross(){
     drawsquare()
     t.penUp()
     t.left(by: 90)
     t.forward(steps: scale)
     t.right(by: 90)
+    t.penDown()
     t.backward(steps: scale)
     drawsquare()
     t.forward(steps: scale)
@@ -127,9 +138,197 @@ func filledCross(){
     t.forward(steps: scale)
     drawsquare()
     t.backward(steps: scale)
-    
+    t.left(by: 90)
+    t.forward(steps: scale)
+    t.right(by: 90)
+    drawsquare()
     
 }
+//function for a square with empty cross but filled in sides
+func filledSquare(){
+    for _ in 1...5{
+    drawsquare()
+t.forward(steps: scale)
+    }
+    t.penUp()
+    t.backward(steps: scale*5)
+    t.left(by: 90)
+    t.forward(steps: scale)
+    t.right(by: 90)
+    t.penDown()
+    for _ in 1...2{
+    drawsquare()
+t.forward(steps: scale)
+    }
+    t.penUp()
+    t.forward(steps: scale)
+    t.penDown()
+    for _ in 1...2{
+    drawsquare()
+t.forward(steps: scale)
+    }
+    t.penUp()
+    t.backward(steps: scale*5)
+    t.left(by: 90)
+    t.forward(steps: scale)
+    t.right(by: 90)
+    t.penDown()
+    drawsquare()
+    t.penUp()
+    t.forward(steps: scale*4)
+    drawsquare()
+    t.penUp()
+    t.backward(steps: scale*4)
+    t.left(by: 90)
+    t.forward(steps: scale)
+    t.right(by: 90)
+    t.penDown()
+    for _ in 1...2{
+    drawsquare()
+t.forward(steps: scale)
+    }
+    t.penUp()
+    t.forward(steps: scale)
+    t.penDown()
+    for _ in 1...2{
+    drawsquare()
+t.forward(steps: scale)
+    }
+    t.penUp()
+    t.backward(steps: scale*5)
+    t.left(by: 90)
+    t.forward(steps: scale)
+    t.right(by: 90)
+    t.penDown()
+    for _ in 1...5{
+    drawsquare()
+t.forward(steps: scale)
+    }
+}
+//Draw the actual Tesselation
+//boxes/grid of Tesselation
+for _ in 1...6{
+for _ in 1...6{
+    drawOutSquare()
+    t.penUp()
+    t.forward(steps: scale*5)
+    t.penDown()
+}
+    t.penUp()
+    t.backward(steps: scale*30)
+    t.left(by: 90)
+    t.forward(steps: scale*5)
+    t.right(by: 90)
+    t.penDown()
+}
+//goto origin
+t.penUp()
+t.right(by: 90)
+t.forward(steps: scale*30)
+t.currentPosition()
+t.left(by: 90)
+t.penDown()
+//LOOP for all the filled in squares
+for _ in 1...3{
+//draw the filled in squares
+for _ in 1...3{
+filledSquare()
+    t.penUp()
+t.right(by: 90)
+t.forward(steps: scale*4)
+t.left(by: 90)
+t.forward(steps: scale*5)
+t.currentPosition()
+    t.penDown()
+}
+//goto origin of next starting row
+    t.penUp()
+t.backward(steps: scale*30)
+t.currentPosition()
+t.left(by: 90)
+t.forward(steps: scale*5)
+t.right(by: 90)
+t.forward(steps: scale*5)
+    t.penDown()
+//second Row of filled squares
+for _ in 1...3{
+    filledSquare()
+    t.penUp()
+    t.right(by: 90)
+    t.forward(steps: scale*4)
+    t.left(by: 90)
+    t.forward(steps: scale*5)
+    t.currentPosition()
+    t.penDown()
+}
+//goto x=0 and up to next row
+    t.penUp()
+t.backward(steps: scale*35)
+t.left(by: 90)
+t.forward(steps: scale*5)
+t.right(by: 90)
+    t.penDown()
+}
+//goto middle of the first row to start filled crosses
+t.currentPosition()
+t.penUp()
+t.right(by: 90)
+t.forward(steps: scale*29)
+t.left(by: 90)
+//at origin
+for _ in 1...3{
+//start the filled cross rows
+    t.penUp()
+t.forward(steps: scale*7)
+t.penDown()
+for _ in 1...3{
+filledCross()
+t.penUp()
+t.forward(steps: scale*10)
+t.right(by: 90)
+t.forward(steps: scale*2)
+t.left(by: 90)
+t.penDown()
+}
+//bring pen back to origin of next cross
+t.currentPosition()
+t.penUp()
+t.backward(steps: scale*35)
+t.currentPosition()
+t.left(by: 90)
+t.forward(steps: scale*5)
+t.right(by: 90)
+t.penDown()
+//loop for second row
+for _ in 1...3{
+filledCross()
+t.penUp()
+t.forward(steps: scale*10)
+t.right(by: 90)
+t.forward(steps: scale*2)
+t.left(by: 90)
+t.penDown()
+}
+//bring origin to next row of crosses
+t.currentPosition()
+t.penUp()
+t.backward(steps: scale*32)
+t.left(by: 90)
+t.forward(steps: scale*5)
+t.right(by: 90)
+t.penDown()
+}
+//bring to origin
+t.currentPosition()
+t.right(by: 90)
+t.forward(steps: scale*31)
+t.currentPosition()
+
+
+
+
+
+canvas.highPerformance = false
 
 /*:
  ## Show the Live View
