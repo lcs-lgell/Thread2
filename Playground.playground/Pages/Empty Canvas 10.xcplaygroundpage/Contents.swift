@@ -103,19 +103,21 @@ func drawinvertcross(){
 }
 //squares for filling in
 func drawsquare(){
-    for _ in 1...scale/2{
+    for i in 1...scale/2{
         t.forward(steps: scale)
         t.left(by: 90)
         t.forward(steps: 1)
         t.left(by: 90)
         t.forward(steps: scale)
         t.right(by: 90)
-        t.penUp()
+        if i == scale / 2 {
+            t.penUp()
+        }
         t.forward(steps: 1)
-        
         t.right(by: 90)
+        if i == scale/2 {
         t.penDown()
-    
+        }
 }
     t.penUp()
     t.right(by: 90)
@@ -126,20 +128,15 @@ func drawsquare(){
 //filled in cross
 func filledCross(){
     drawsquare()
-    t.penUp()
     t.left(by: 90)
     t.forward(steps: scale)
     t.right(by: 90)
     t.backward(steps: scale)
-    t.penDown()
     drawsquare()
-    t.penUp()
     t.forward(steps: scale)
-    t.penDown()
     drawsquare()
-    t.penUp()
     t.forward(steps: scale)
-    t.penDown()
+
     drawsquare()
     t.penUp()
     t.backward(steps: scale)
@@ -156,12 +153,10 @@ func filledSquare(){
     drawsquare()
 t.forward(steps: scale)
     }
-    t.penUp()
     t.backward(steps: scale*5)
     t.left(by: 90)
     t.forward(steps: scale)
     t.right(by: 90)
-    t.penDown()
     for _ in 1...2{
     drawsquare()
 t.forward(steps: scale)
