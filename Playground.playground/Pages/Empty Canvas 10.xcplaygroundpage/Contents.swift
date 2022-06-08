@@ -60,7 +60,7 @@ t.setPenColor(to: .red
  */
 canvas.highPerformance = true
 //Up pen Size
-t.setPenSize(to: 3)
+t.setPenSize(to: 1)
 let scale = 20
 t.drawSelf()
 //draw outside squares
@@ -130,17 +130,23 @@ func filledCross(){
     t.left(by: 90)
     t.forward(steps: scale)
     t.right(by: 90)
-    t.penDown()
     t.backward(steps: scale)
+    t.penDown()
     drawsquare()
+    t.penUp()
     t.forward(steps: scale)
+    t.penDown()
     drawsquare()
+    t.penUp()
     t.forward(steps: scale)
+    t.penDown()
     drawsquare()
+    t.penUp()
     t.backward(steps: scale)
     t.left(by: 90)
     t.forward(steps: scale)
     t.right(by: 90)
+    t.penDown()
     drawsquare()
     
 }
@@ -174,8 +180,10 @@ t.forward(steps: scale)
     t.right(by: 90)
     t.penDown()
     drawsquare()
+
     t.penUp()
     t.forward(steps: scale*4)
+    t.penDown()
     drawsquare()
     t.penUp()
     t.backward(steps: scale*4)
