@@ -322,9 +322,11 @@ t.right(by: 90)
 t.penDown()
 }
 //bring to origin
+t.penUp()
 t.currentPosition()
 t.right(by: 90)
 t.forward(steps: scale*31)
+t.penDown()
 t.currentPosition()
 
 
